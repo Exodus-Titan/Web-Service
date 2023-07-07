@@ -3,19 +3,19 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class EndpointsService {
     listFaculties(){};
-    createFacultie(){};
-    updateFacultie(){};
-    deleteFacultie(){};
+    createFaculty(){};
+    updateFaculty(){};
+    deleteFaculty(){};
 
     listSchools(){};
     createSchool(){};
     updateSchool(){};
     deleteSchool(){};
 
-    listSectios(){};
-    createSectio(){};
-    updateSectio(){};
-    deleteSectio(){};
+    listSections(){};
+    createSection(){};
+    updateSection(){};
+    deleteSection(){};
 
     listPersons(){};
     createPerson(){};
