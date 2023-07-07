@@ -1,6 +1,6 @@
-import { BaseEntiyy } from 'src/BaseEntity/Entities/BaseEntity';
+import { BaseEntity } from 'src/BaseEntity/Entities/BaseEntity';
 
-export abstract class Entity extends BaseEntiyy {
+export abstract class Entity extends BaseEntity {
   private name: string;
   private description: string;
 }
