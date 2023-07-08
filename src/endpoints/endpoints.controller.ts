@@ -7,65 +7,104 @@ export class EndpointsController {
     constructor(private endpointService: EndpointsService){}
 
     @Get('listFaculties')
-    listFaculties(){};
+    listFaculties(){
+        return('Test ListFaculties')
+    };
 
     @Post('createFaculty')
-    createFaculty(){};
+    createFaculty(){
+        return('Test CreateFacultiy')
+    };
 
     @Post('updateFaculty')
-    updateFaculty(){};
+    updateFaculty(){
+        return('Test updateFacultiy')
+    };
 
     @Post('deleteFaculty')
-    deleteFaculty(){};
+    deleteFaculty(){
+        return('Test deleteFacultiy')
+    };
 
 
     @Get('listSchools')    
-    listSchools(){};
+    listSchools(){
+        return('Test ListSchools')
+    };
 
     @Post('createSchool')
-    createSchool(){};
+    createSchool(){
+        return('Test CreateSchool')
+    };
 
     @Post('updateSchool')
-    updateSchool(){};
+    updateSchool(){
+        return('Test updateSchool')
+    };
 
     @Post('deleteSchool')
-    deleteSchool(){};
+    deleteSchool(){
+        return('Test DeleteSchool')
+    };
 
 
     @Get('listSelections')     
-    listSectinos(){};
+    listSectinos(){
+        return('Test ListSections')
+    };
 
     @Post('createSelection')
-    createSection(){};
+    createSection(){
+        return('Test createSection')
+
+    };
 
     @Post('updateSelection')
-    updateSection(){};
+    updateSection(){
+        return('Test updateSection')
+    };
 
     @Post('deleteSelection')
-    deleteSection(){};
+    deleteSection(){
+        return('Test deleteSection')
+    };
 
 
     @Get('listPersons') 
-    listPersons(){};
+    listPersons(){
+        return('Test listPersons')
+    };
 
     @Post('createPerson')
-    createPerson(){};
+    createPerson(){
+        return('Test createPerson')
+    };
 
     @Post('updatePerson')
-    updatePerson(){};
+    updatePerson(){
+        return('Test updatePerson')
+    };
 
     @Post('deletePerson')    
-    deletePerson(){};
+    deletePerson(){
+        return('Test deletePerson')
+    };
 
     @Post('enroll') 
-    enroll(){};
+    enroll(){
+        return('Test enroll')
+    };
 
     @Post('unenroll') 
-    unenroll(){};
+    unenroll(){return('Test unenroll')};
 
     @Get('listStudentsInSection')
-    listStudentsInSection(){};
+    listStudentsInSection(){
+        return('Test listStudentsSection')
+    };
 
     @Get('listProfesorsInSection')
-    listProfesorsInSection(){};
+    listProfesorsInSection(){
+        return('Test ListProfesorsSection')
+    };
 }

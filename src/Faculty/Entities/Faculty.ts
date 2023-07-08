@@ -1,5 +1,5 @@
-import { Entity } from 'src/Entity/Entities/Entity';
+import { EntityClass } from 'src/Entity/Entities/Entity';
 
-export class Faculty extends Entity {
+export class Faculty extends EntityClass {
   private school: number; //Id de la escuela de la facultad
 }
