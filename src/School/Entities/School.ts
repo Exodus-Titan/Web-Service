@@ -7,9 +7,9 @@ import {
 
 @Entity()
 export class School extends EntityClass {
-  @Column({type: 'number'})
+  @Column({type: 'integer'})
   private faculties: number[];
 
-  @Column({type: 'number'})
+  @Column({type: 'integer'})
   private sections: number[];
 }

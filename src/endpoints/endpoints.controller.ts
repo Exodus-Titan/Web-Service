@@ -2,7 +2,7 @@ import { Controller, Get, Post } from '@nestjs/common';
 import { EndpointsService } from './endpoints.service';
 import { get } from 'http';
 
-@Controller('endpoints')
+@Controller('education')
 export class EndpointsController {
     constructor(private endpointService: EndpointsService){}
 
