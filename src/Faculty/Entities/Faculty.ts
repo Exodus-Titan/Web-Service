@@ -1,5 +1,13 @@
-import { Entity } from 'src/Entity/Entities/Entity';
+import { EntityClass } from 'src/Entity/Entities/Entity';
+import { School } from 'src/School/Entities/School';
+import {
+  Entity,
+  ManyToOne
+} from 'typeorm';
 
-export class Faculty extends Entity {
+@Entity()
+export class Faculty extends EntityClass {
+
+  @ManyToOne(() => School, (school) => school.getId)
   private school: number; //Id de la escuela de la facultad
 }
