@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { EndpointsService } from './endpoints.service';
 import {
   CreateFacultyDto,
@@ -37,7 +37,7 @@ export class EndpointsController {
     return this.endpointService.updateFaculty(dto);
   }
 
-  @Post('deleteFaculty')
+  @Delete('deleteFaculty')
   deleteFaculty(@Body() dto: idDto) {
     console.groupCollapsed({ dto });
     return this.endpointService.deleteFaculty(dto);
@@ -60,7 +60,7 @@ export class EndpointsController {
     return this.endpointService.updateSchool(dto);
   }
 
-  @Post('deleteSchool')
+  @Delete('deleteSchool')
   deleteSchool(@Body() dto: idDto) {
     console.groupCollapsed({ dto });
     return this.endpointService.deleteSchool(dto);

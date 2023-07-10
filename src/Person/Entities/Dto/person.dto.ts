@@ -19,7 +19,7 @@ export class CreatePersonDto {
   readonly last_name: string;
 
   @ApiProperty()
-  sections: Enrollment[] = [] ;
+  sections: Enrollment[] = [];
 }
 
 export class UpdatePersonDto extends PartialType(CreatePersonDto) {
