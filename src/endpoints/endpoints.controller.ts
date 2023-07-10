@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { EndpointsService } from './endpoints.service';
 import {
   CreateFacultyDto,
@@ -29,6 +38,14 @@ export class EndpointsController {
   createFaculty(@Body() dto: CreateFacultyDto) {
     console.groupCollapsed({ dto });
     return this.endpointService.createFaculty(dto);
+  }
+
+  @Put(':id/updateFacultyState')
+  updateFacultyState(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateFacultyDto,
+  ) {
+    return this.endpointService.ChangeState(id, payload);
   }
 
   @Put('updateFaculty')

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { log } from 'console';
@@ -64,6 +65,19 @@ export class EndpointsService {
     }
     this.facultyRepo.merge(faculty, updateFacultyObject);
     return this.facultyRepo.save(faculty);
+  }
+
+  async ChangeState(id: number, change: UpdateFacultyDto) {
+    const faculty = await this.facultyRepo.findOne({
+      where: { id: id },
+    });
+    const { status } = change;
+    faculty.status = status;
+
+    if (faculty.status != status) {
+      this.facultyRepo.merge(faculty, change);
+      return this.facultyRepo.save(faculty);
+    }
   }
 
   async deleteFaculty(id: idDto) {

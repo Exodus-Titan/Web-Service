@@ -1,5 +1,11 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { IsDate, IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
+import {
+  IsDate,
+  IsNotEmpty,
+  IsNumber,
+  IsPositive,
+  IsString,
+} from 'class-validator';
 
 export class CreateFacultyDto {
   @IsString()
@@ -12,10 +18,15 @@ export class CreateFacultyDto {
   @ApiProperty()
   readonly description: string;
 
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  readonly status: string;
+
   @IsPositive()
   @IsNotEmpty()
   @ApiProperty()
-  readonly schoolId: number ;
+  readonly schoolId: number;
 }
 
 export class UpdateFacultyDto extends PartialType(CreateFacultyDto) {
@@ -24,19 +35,18 @@ export class UpdateFacultyDto extends PartialType(CreateFacultyDto) {
   readonly idSearch: number;
 }
 
-export class deleteDto{
-  
+export class deleteDto {
   @IsNotEmpty()
   @ApiProperty()
   @IsString()
-  readonly status: string = "disabled"
+  readonly status: string = 'disabled';
 
   @IsDate()
   @ApiProperty()
   readonly deleted_date: Date = new Date();
 }
 
-export class idDto{
+export class idDto {
   @IsNumber()
   @ApiProperty()
   readonly idSearch: number;
