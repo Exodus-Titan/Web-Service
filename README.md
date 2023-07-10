@@ -88,6 +88,10 @@ Una vez culmine la descarga, se levantará dicho contenedor en segundo plano.
 
 Puede ejecutar `docker-compose ps` en la consola para saber el status de dichos contenedores. Ambos deben tener el `STATUS running`
 
+# Swagger 
+
+Para poder ver la documentación que Swagger proporciona del servicio web basta con correr `npm run start` y entrar a [localhost:3000/docs](http://localhost:3000/docs) desde el navegador. En dicho sitio podrá probar los endpoints y ver los diferentes schemas requeridos para la exitosa ejecución de dichos endpoints.
+
 ## License
 
 Nest is [MIT licensed](LICENSE).
