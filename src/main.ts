@@ -17,9 +17,6 @@ async function bootstrap() {
     .setTitle('School API')
     .setDescription('This API was made with educational purpose')
     .setVersion('1.0')
-    .addTag('Person')
-    .addTag('School')
-    .addTag('Section')
     .addTag('Faculty')
     .build();
   const document = SwaggerModule.createDocument(app, config);
