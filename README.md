@@ -24,7 +24,10 @@
 
 ## Description
 
-Este es el repositorio en el cual se desarrolló un web service usando [Nest](https://github.com/nestjs/nest) como framework de TypeScript. A continuación se indican los pasos a seguir para poder usar este servicio web en tu equipo. Este web service cuenta con la documentación de [Swagger](https://swagger.io/) para el uso y documentación de Endpoints y cuenta también con el uso de [PostgreSQL](https://www.postgresql.org/) como Base de Datos no relacional para la persistencia de datos usando un contenedor [Docker](https://www.docker.com/) así como también un contenedor para pgadmin. En esta sección proveeremos todos los comandos necesarios paso a paso para la exitosa ejecución de este webservice.
+Este es el repositorio en el cual se desarrolló un web service usando [Nest](https://github.com/nestjs/nest) como framework de TypeScript. A continuación se indican los pasos a seguir para poder usar este servicio web en tu equipo. Este web service cuenta con [Swagger](https://swagger.io/) para el uso y documentación de Endpoints y cuenta también con el uso de [PostgreSQL](https://www.postgresql.org/) como Base de Datos no relacional para la persistencia de datos usando un contenedor [Docker](https://www.docker.com/) así como también un contenedor para pgadmin. En esta sección proveeremos todos los comandos necesarios paso a paso para la exitosa ejecución de este webservice.
+
+Empecemos.
+
 ## 1. Clonar el repositorio
 
 Para poder usar este web service de manera local lo primero que deberá hacer es clonar el repositorio, para ello puede hacerlo utilizando el siguiente comando:
@@ -60,12 +63,7 @@ $ npm run start:prod
 
 ## 4. Crear el contenedor Docker
 
-Lo primero que debe hacer es verificar que se encuentra en la misma carpeta donde se encuentre el archivo docker-compose-yml. Para ello ejecute el siguiente comando:
-
-```shell
-$ ls
-```
-Y podrá observar los siguientes archivos:
+Lo primero que debe hacer es verificar que se encuentra en la misma carpeta donde se encuentre el archivo docker-compose-yml. Para ello ejecute en su terminal `ls` y podrá observar los siguientes archivos:
 
 ```shell
 README.md           node_modules        src                 yarn.lock
@@ -73,6 +71,22 @@ dist                package-lock.json   test
 docker-compose.yml  package.json        tsconfig.build.json
 nest-cli.json       postgres_data       tsconfig.json
 ```
+
+## 5. Docker Compose
+
+Realizar el siguiente comando en consola para levantar el contenedor de Postgre:
+```
+$ docker-compose up -d postgres
+```
+Una vez culmine la descarga, se levantará dicho contenedor en segundo plano.
+
+Ahora, ejecutar el mismo comando para pgadmin
+```
+$ docker-compose up -d pgadmin
+```
+Una vez culmine la descarga, se levantará dicho contenedor en segundo plano.
+
+Puede ejecutar `docker-compose ps` en la consola para saber el status de dichos contenedores. Ambos deben tener el `STATUS running`
 
 ## License
 
