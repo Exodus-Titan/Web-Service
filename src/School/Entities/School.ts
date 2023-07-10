@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { EntityClass } from 'src/Entity/Entities/Entity';
 import {
   Column,
@@ -7,6 +6,7 @@ import {
 
 @Entity()
 export class School extends EntityClass {
+
   @Column({type: 'integer'})
   private faculties: number[];
 

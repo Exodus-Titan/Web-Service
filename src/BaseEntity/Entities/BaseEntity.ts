@@ -9,22 +9,22 @@ import {
   @Entity()
   export abstract class BaseEntity {
   @PrimaryGeneratedColumn()
-  private id: number;
+  id: number;
 
-  @Column({ type: 'varchar', length: 255})
-  private status: Status_BaseEntity;
-
-  @CreateDateColumn({
-    type: 'timestamptz',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
-  private created_date: Date;
+  @Column({ type: 'varchar', length: 255, default: 1})
+  status: string;
 
   @CreateDateColumn({
     type: 'timestamptz',
     default: () => 'CURRENT_TIMESTAMP',
   })
-  private deleted_date: Date;
+  created_date: Date;
+
+  @CreateDateColumn({
+    type: 'timestamptz',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  deleted_date: Date;
 
   public getId(){
     return this.id

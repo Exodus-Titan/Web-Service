@@ -1,12 +1,12 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { IsNotEmpty, IsPositive, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
 import { Type_Enrollment } from '../Enums/Types_enum';
 
-export class CreateLessonDto {
+export class CreateEnrollmentDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  readonly type: Type_Enrollment;
+  readonly type: string;
 
   @IsPositive()
   @IsNotEmpty()
@@ -14,4 +14,8 @@ export class CreateLessonDto {
   readonly sectionIda: number;
 }
 
-export class UpdateLessonDto extends PartialType(CreateLessonDto) {}
+export class UpdateEnrollmentnDto extends PartialType(CreateEnrollmentDto) {
+  @IsNumber()
+  @ApiProperty()
+  readonly idSearch: number;
+}
