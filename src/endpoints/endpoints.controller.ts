@@ -24,7 +24,9 @@ import {
   UpdatePersonDto,
 } from 'src/Person/Entities/Dto/person.dto';
 import { CreateEnrollmentDto } from 'src/Enrollment/Dto/enrollmet.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Faculty')
 @Controller('')
 export class EndpointsController {
   constructor(private endpointService: EndpointsService) {}
