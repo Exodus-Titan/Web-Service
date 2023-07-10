@@ -7,8 +7,8 @@ import {
 @Entity()
 export abstract class EntityClass extends BaseEntity {
   @Column({ type: 'varchar', length: 255})
-  private name: string;
+  name: string;
 
   @Column({ type: 'varchar', length: 255})
-  private description: string;
+  description: string;
 }

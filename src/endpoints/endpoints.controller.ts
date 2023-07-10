@@ -1,102 +1,123 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { EndpointsService } from './endpoints.service';
 import { get } from 'http';
+import { CreateFacultyDto, UpdateFacultyDto, idDto } from 'src/Faculty/Dto/faculty.dto';
+import { CreateSchoolDto, UpdateSchoolDto } from 'src/School/Entities/Dto/school.dto';
+import { log } from 'console';
+import { CreateLessonDto, UpdateLessonDto } from 'src/Section/Dto/section.dto';
+import { CreatePersonDto, UpdatePersonDto } from 'src/Person/Entities/Dto/person.dto';
+import { CreateEnrollmentDto } from 'src/Enrollment/Dto/enrollmet.dto';
 
-@Controller('endpoints')
+@Controller('')
 export class EndpointsController {
     constructor(private endpointService: EndpointsService){}
 
     @Get('listFaculties')
     listFaculties(){
-        return('Test ListFaculties')
+        return(this.endpointService.listFaculties())
     };
 
     @Post('createFaculty')
-    createFaculty(){
-        return('Test CreateFacultiy')
+    createFaculty(@Body() dto: CreateFacultyDto){
+        console.groupCollapsed({dto,})
+        return(this.endpointService.createFaculty(dto))
     };
 
-    @Post('updateFaculty')
-    updateFaculty(){
-        return('Test updateFacultiy')
+    @Put('updateFaculty')
+    updateFaculty(@Body() dto: UpdateFacultyDto){
+        console.groupCollapsed({dto,})
+        return(this.endpointService.updateFaculty(dto))
     };
 
     @Post('deleteFaculty')
-    deleteFaculty(){
-        return('Test deleteFacultiy')
+    deleteFaculty(@Body() dto: idDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.deleteFaculty(dto))
     };
 
 
     @Get('listSchools')    
     listSchools(){
-        return('Test ListSchools')
+        return(this.endpointService.listSchools())
     };
 
     @Post('createSchool')
-    createSchool(){
-        return('Test CreateSchool')
+    createSchool(@Body() dto: CreateSchoolDto){
+        console.groupCollapsed({dto,})
+        return(this.endpointService.createSchool(dto))
     };
 
-    @Post('updateSchool')
-    updateSchool(){
-        return('Test updateSchool')
+    @Put('updateSchool')
+    updateSchool(@Body() dto: UpdateSchoolDto){
+        console.groupCollapsed({dto,})
+        return(this.endpointService.updateSchool(dto))
     };
 
     @Post('deleteSchool')
-    deleteSchool(){
-        return('Test DeleteSchool')
+    deleteSchool(@Body() dto: idDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.deleteSchool(dto))
     };
 
 
-    @Get('listSelections')     
+    @Get('listSections')     
     listSectinos(){
-        return('Test ListSections')
+        return(this.endpointService.listSections())
     };
 
-    @Post('createSelection')
-    createSection(){
-        return('Test createSection')
+    @Post('createSection')
+    createSection(@Body() dto: CreateLessonDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.createSection(dto))
 
     };
 
-    @Post('updateSelection')
-    updateSection(){
-        return('Test updateSection')
+    @Put('updateSection')
+    updateSection(@Body() dto: UpdateLessonDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.updateSection(dto))
     };
 
-    @Post('deleteSelection')
-    deleteSection(){
-        return('Test deleteSection')
+    @Post('deleteSection')
+    deleteSection(@Body() dto: idDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.deleteSection(dto))
     };
 
 
     @Get('listPersons') 
     listPersons(){
-        return('Test listPersons')
+        return(this.endpointService.listPersons())
     };
 
     @Post('createPerson')
-    createPerson(){
-        return('Test createPerson')
+    createPerson(@Body() dto: CreatePersonDto){
+        console.groupCollapsed({dto,})
+        return(this.endpointService.createPerson(dto))
     };
 
-    @Post('updatePerson')
-    updatePerson(){
-        return('Test updatePerson')
+    @Put('updatePerson')
+    updatePerson(@Body() dto: UpdatePersonDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.updatePerson(dto))
     };
 
     @Post('deletePerson')    
-    deletePerson(){
-        return('Test deletePerson')
+    deletePerson(@Body() dto: idDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.deletePerson(dto))
     };
 
     @Post('enroll') 
-    enroll(){
-        return('Test enroll')
+    enroll(@Body() dto: CreateEnrollmentDto){
+        console.groupCollapsed({dto,});
+        return(this.endpointService.enroll(dto))
     };
 
     @Post('unenroll') 
-    unenroll(){return('Test unenroll')};
+        unenroll(@Body() dto: any){//Probablemente tengas q hacer un dto para buscar, o usar el q yo cree para eliminar, si usas un id solo la vaina explota xd
+            console.groupCollapsed({dto,});// el q use es idDto solo tiene un id
+            return(this.endpointService.unenroll(dto))};
 
     @Get('listStudentsInSection')
     listStudentsInSection(){

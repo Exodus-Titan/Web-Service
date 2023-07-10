@@ -8,6 +8,6 @@ import {
 @Entity()
 export class Faculty extends EntityClass {
 
-  @ManyToOne(() => School, (school) => school.getId)
+  @ManyToOne(() => School, (school) => school.id)
   private school: number; //Id de la escuela de la facultad
 }

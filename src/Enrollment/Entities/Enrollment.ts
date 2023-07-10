@@ -7,12 +7,16 @@ import {
   ManyToOne
 } from 'typeorm';
 import { Section } from 'src/Section/Entities/Section';
+import { Person } from 'src/Person/Entities/Person';
 
 @Entity()
 export class Enrollment extends BaseEntity {
   @Column({ type: 'varchar', length: 255})
-  private type: Type_Enrollment;
+  type: string;
 
   @ManyToOne(() => Section, (section) => section.getId)
-  private section: number; //id de la seccion inscrita
+  section: number; //id de la seccion inscrita
+
+  @ManyToOne(() => Person, (person) => person.getId)
+  person: number;
 }

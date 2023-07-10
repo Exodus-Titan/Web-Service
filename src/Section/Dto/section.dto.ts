@@ -1,14 +1,26 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { IsNotEmpty, IsPositive, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
 import { Type_School } from '../Enums/Types_enum_school';
 
 export class CreateLessonDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  readonly uc: number;
+  readonly name: string;
 
   @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  readonly description: string;
+
+  @IsNumber()
+  @IsPositive()
+  @IsNotEmpty()
+  @ApiProperty()
+  readonly uc: number;
+
+  @IsNumber()
+  @IsPositive()
   @IsNotEmpty()
   @ApiProperty()
   readonly semester: number;
@@ -16,7 +28,7 @@ export class CreateLessonDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  readonly type: Type_School;
+  readonly type: string;
 
   @IsPositive()
   @IsNotEmpty()
@@ -39,4 +51,8 @@ export class CreateLessonDto {
   readonly schoolId: number;
 }
 
-export class UpdateLessonDto extends PartialType(CreateLessonDto) {}
+export class UpdateLessonDto extends PartialType(CreateLessonDto) {
+  @IsNumber()
+  @ApiProperty()
+  readonly idSearch: number;
+}

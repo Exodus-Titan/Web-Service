@@ -9,14 +9,14 @@ import {
 @Entity()
 export class Person extends BaseEntity {
   @Column({ type: 'varchar', length: 255})
-  private dni: string;
+  dni: string;
 
   @Column({ type: 'varchar', length: 255})
-  private first_name: string;
+  first_name: string;
 
   @Column({ type: 'varchar', length: 255})
-  private last_name: string;
+  last_name: string;
 
   @ManyToOne(() => Enrollment, (enrollment) => enrollment.getId)
-  private enrollment: number[];
+  enrollment: number[];
 }
