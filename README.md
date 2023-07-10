@@ -92,6 +92,11 @@ Puede ejecutar `docker-compose ps` en la consola para saber el status de dichos 
 
 Para poder ver la documentación que Swagger proporciona del servicio web basta con correr `npm run start` y entrar a [localhost:3000/docs](http://localhost:3000/docs) desde el navegador. En dicho sitio podrá probar los endpoints y ver los diferentes schemas requeridos para la exitosa ejecución de dichos endpoints.
 
+# PgAdmin
+
+Para poder entrar a pg admin deben estar corriendo ambos contenedores y la aplicación. Entrar a [http://localhost:5050/](http://localhost:5050/) y loggear con las siguientes credenciales:
+`email: root@admin.com`
+`password: root`
 ## License
 
 Nest is [MIT licensed](LICENSE).
