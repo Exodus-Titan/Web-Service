@@ -24,13 +24,29 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este es el repositorio en el cual se desarrolló un web service usando [Nest](https://github.com/nestjs/nest) como framework de TypeScript. A continuación se indican los pasos a seguir para poder usar este servicio web en tu equipo. Este web service cuenta con [Swagger](https://swagger.io/) para el uso y documentación de Endpoints y cuenta también con el uso de [PostgreSQL](https://www.postgresql.org/) como Base de Datos no relacional para la persistencia de datos usando un contenedor [Docker](https://www.docker.com/) así como también un contenedor para pgadmin. En esta sección proveeremos todos los comandos necesarios paso a paso para la exitosa ejecución de este webservice.
 
-## Installation
+Empecemos.
 
-```bash
-$ npm install
+## 1. Clonar el repositorio
+
+Para poder usar este web service de manera local lo primero que deberá hacer es clonar el repositorio, para ello puede hacerlo utilizando el siguiente comando:
+
+```shell
+git clone git@github.com:Exodus-Titan/Web-Service.git
 ```
+
+## 2. Instalar dependencias
+
+Para instalar las dependencias se utilizará el manejador de paquetes `npm`. Es necesario que se se encuentre dentro de la carpeta del proyecto si se quedo en el paso anterior podrá hacerlo haciendo `cd Web-Service`, para instalar las dependencias entonces se ejecuta el siguiente comando:
+
+```shell
+npm install
+```
+
+## 3. Ejecutar el proyecto
+
+Una vez instaladas las dependencias deberá ejecutar el siguiente comando para montar el servidor de desarrollo.
 
 ## Running the app
 
@@ -45,29 +61,42 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## 4. Crear el contenedor Docker
 
-```bash
-# unit tests
-$ npm run test
+Lo primero que debe hacer es verificar que se encuentra en la misma carpeta donde se encuentre el archivo docker-compose-yml. Para ello ejecute en su terminal `ls` y podrá observar los siguientes archivos:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```shell
+README.md           node_modules        src                 yarn.lock
+dist                package-lock.json   test
+docker-compose.yml  package.json        tsconfig.build.json
+nest-cli.json       postgres_data       tsconfig.json
 ```
 
-## Support
+## 5. Docker Compose
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Realizar el siguiente comando en consola para levantar el contenedor de Postgre:
+```
+$ docker-compose up -d postgres
+```
+Una vez culmine la descarga, se levantará dicho contenedor en segundo plano.
 
-## Stay in touch
+Ahora, ejecutar el mismo comando para pgadmin
+```
+$ docker-compose up -d pgadmin
+```
+Una vez culmine la descarga, se levantará dicho contenedor en segundo plano.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Puede ejecutar `docker-compose ps` en la consola para saber el status de dichos contenedores. Ambos deben tener el `STATUS running`
 
+# Swagger 
+
+Para poder ver la documentación que Swagger proporciona del servicio web basta con correr `npm run start` y entrar a [localhost:3000/docs](http://localhost:3000/docs) desde el navegador. En dicho sitio podrá probar los endpoints y ver los diferentes schemas requeridos para la exitosa ejecución de dichos endpoints.
+
+# PgAdmin
+
+Para poder entrar a pg admin deben estar corriendo ambos contenedores y la aplicación. Entrar a [http://localhost:5050/](http://localhost:5050/) y loggear con las siguientes credenciales:
+`email: root@admin.com`
+`password: root`
 ## License
 
 Nest is [MIT licensed](LICENSE).
