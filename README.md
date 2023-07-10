@@ -24,13 +24,26 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este es el repositorio en el cual se desarrolló un web service usando [Nest](https://github.com/nestjs/nest) como framework de TypeScript. A continuación se indican los pasos a seguir para poder usar este servicio web en tu equipo. Este web service cuenta con la documentación de [Swagger](https://swagger.io/) para el uso y documentación de Endpoints y cuenta también con el uso de [PostgreSQL](https://www.postgresql.org/) como Base de Datos no relacional para la persistencia de datos usando un contenedor [Docker](https://www.docker.com/) así como también un contenedor para pgadmin. En esta sección proveeremos todos los comandos necesarios paso a paso para la exitosa ejecución de este webservice.
+## 1. Clonar el repositorio
 
-## Installation
+Para poder usar este web service de manera local lo primero que deberá hacer es clonar el repositorio, para ello puede hacerlo utilizando el siguiente comando:
 
-```bash
-$ npm install
+```shell
+git clone git@github.com:Exodus-Titan/Web-Service.git
 ```
+
+## 2. Instalar dependencias
+
+Para instalar las dependencias se utilizará el manejador de paquetes `npm`. Es necesario que se se encuentre dentro de la carpeta del proyecto si se quedo en el paso anterior podrá hacerlo haciendo `cd Web-Service`, para instalar las dependencias entonces se ejecuta el siguiente comando:
+
+```shell
+npm install
+```
+
+## 3. Ejecutar el proyecto
+
+Una vez instaladas las dependencias deberá ejecutar el siguiente comando para montar el servidor de desarrollo.
 
 ## Running the app
 
@@ -45,28 +58,21 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## 4. Crear el contenedor Docker
 
-```bash
-# unit tests
-$ npm run test
+Lo primero que debe hacer es verificar que se encuentra en la misma carpeta donde se encuentre el archivo docker-compose-yml. Para ello ejecute el siguiente comando:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```shell
+$ ls
 ```
+Y podrá observar los siguientes archivos:
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```shell
+README.md           node_modules        src                 yarn.lock
+dist                package-lock.json   test
+docker-compose.yml  package.json        tsconfig.build.json
+nest-cli.json       postgres_data       tsconfig.json
+```
 
 ## License
 
